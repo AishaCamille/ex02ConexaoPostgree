@@ -14,7 +14,7 @@ public class DAO {
 	public boolean conectar() {
 		String driverName = "org.postgresql.Driver";                    
 		String serverName = "localhost";
-		String mydatabase = "teste";
+		String mydatabase = "Grupo";
 		int porta = 5432;
 		String url = "jdbc:postgresql://" + serverName + ":" + porta +"/" + mydatabase;
 		String username = "ti2cc";
@@ -48,9 +48,9 @@ public class DAO {
 	}
 	
 	
-	public static String toMD5(String senha) throws Exception {
+	public static String toMD5(String Id) throws Exception {
 		MessageDigest m=MessageDigest.getInstance("MD5");
-		m.update(senha.getBytes(),0, senha.length());
+		m.update(Id.getBytes(),0, Id.length());
 		return new BigInteger(1,m.digest()).toString(16);
 	}
 }
