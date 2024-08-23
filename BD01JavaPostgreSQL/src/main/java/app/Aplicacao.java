@@ -12,42 +12,42 @@ public class Aplicacao {
 		
 		UsuarioDAO usuarioDAO = new UsuarioDAO();
 		
-		System.out.println("\n\n==== Inserir usuário === ");
-		Usuario usuario = new Usuario(11, "pablo", "pablo",'M');
+		System.out.println("\n\n==== Inserir pessoa === ");
+		Usuario pessoa = new Usuario(11, "pablo", 12.00, FALSE);
 		if(usuarioDAO.insert(usuario) == true) {
-			System.out.println("Inserção com sucesso -> " + usuario.toString());
+			System.out.println("Inserção com sucesso -> " + pessoa.toString());
 		}
 		
 		System.out.println("\n\n==== Testando autenticação ===");
-		System.out.println("Usuário (" + usuario.getLogin() + "): " + usuarioDAO.autenticar("pablo", "pablo"));
+		System.out.println("Usuário (" + pessoa.getNome() + "): " + pessoaDAO.autenticar(11, "pablo"));
 			
-		System.out.println("\n\n==== Mostrar usuários do sexo masculino === ");
-		List<Usuario> usuarios = usuarioDAO.getSexoMasculino();
-		for (Usuario u: usuarios) {
+		System.out.println("\n\n==== Mostrar usuários que pagaram === ");
+		List<Usuario> pessoas = pessoaDAO.getPagoFalse();
+		for (Usuario u: pessoas) {
 			System.out.println(u.toString());
 		}
 
-		System.out.println("\n\n==== Atualizar senha (código (" + usuario.getCodigo() + ") === ");
-		usuario.setSenha(DAO.toMD5("pablo"));
-		usuarioDAO.update(usuario);
+		System.out.println("\n\n==== Atualizar senha (Id (" + pessoa.getId() + ") === ");
+		pessoa.setNome(DAO.toMD5("pablo"));
+		pessoaDAO.update(pessoa);
 		
 		System.out.println("\n\n==== Testando autenticação ===");
-		System.out.println("Usuário (" + usuario.getLogin() + "): " + usuarioDAO.autenticar("pablo", DAO.toMD5("pablo")));		
+		System.out.println("Usuário (" + pessoa.getNOme() + "): " + usuarioDAO.autenticar("pablo", DAO.toMD5("pablo")));		
 		
 		System.out.println("\n\n==== Invadir usando SQL Injection ===");
-		System.out.println("Usuário (" + usuario.getLogin() + "): " + usuarioDAO.autenticar("pablo", "x' OR 'x' LIKE 'x"));
+		System.out.println("Usuário (" + pessoa.getNome() + "): " + usuarioDAO.autenticar("pablo", "x' OR 'x' LIKE 'x"));
 
 		System.out.println("\n\n==== Mostrar usuários ordenados por código === ");
-		usuarios = usuarioDAO.getOrderByCodigo();
+		usuarios = usuarioDAO.getOrderById();
 		for (Usuario u: usuarios) {
 			System.out.println(u.toString());
 		}
 		
-		System.out.println("\n\n==== Excluir usuário (código " + usuario.getCodigo() + ") === ");
-		usuarioDAO.delete(usuario.getCodigo());
+		System.out.println("\n\n==== Excluir usuário (Id " + pessoa.getId() + ") === ");
+		usuarioDAO.delete(pessoa.getId());
 		
 		System.out.println("\n\n==== Mostrar usuários ordenados por login === ");
-		usuarios = usuarioDAO.getOrderByLogin();
+		usuarios = usuarioDAO.getOrderByNome();
 		for (Usuario u: usuarios) {
 			System.out.println(u.toString());
 		}
