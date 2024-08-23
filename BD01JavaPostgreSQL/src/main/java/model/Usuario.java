@@ -1,59 +1,59 @@
 package model;
 
 public class Usuario {
-	private int codigo;
-	private String login;
-	private String senha;
-	private char sexo;
+	private int Id;
+	private String Nome;
+	private int valorComanda;
+	private boolean Pago;
 	
 	public Usuario() {
-		this.codigo = -1;
-		this.login = "";
-		this.senha = "";
-		this.sexo = '*';
+		this.Id = -1;
+		this.Nome = "";
+		this.valorComanda = "";
+		this.Pago = FALSE;
 	}
 	
-	public Usuario(int codigo, String login, String senha, char sexo) {
-		this.codigo = codigo;
-		this.login = login;
-		this.senha = senha;
-		this.sexo = sexo;
+	public Usuario(int Id, String Nome, String valorComanda, char Pago) {
+		this.Id = Id;
+		this.Nome = Nome;
+		this.valorComanda = valorComanda;
+		this.Pago = Pago;
 	}
 
-	public int getCodigo() {
-		return codigo;
+	public int getId() {
+		return Id;
 	}
 
-	public void setCodigo(int codigo) {
-		this.codigo = codigo;
+	public void setId(int Id) {
+		this.Id = Id;
 	}
 
-	public String getLogin() {
-		return login;
+	public String getNome() {
+		return Nome;
 	}
 
-	public void setLogin(String login) {
-		this.login = login;
+	public void setNome(String Nome) {
+		this.Nome = Nome;
 	}
 
-	public String getSenha() {
-		return senha;
+	public int valorComada() {
+		return valorComanda;
 	}
 
-	public void setSenha(String senha) {
-		this.senha = senha;
+	public void setvalorComanda(String valorComanda) {
+		this.valorComanda = valorComanda;
 	}
 
-	public char getSexo() {
-		return sexo;
+	public boolean getPago() {
+		return Pago;
 	}
 
-	public void setSexo(char sexo) {
-		this.sexo = sexo;
+	public void setPago(char Pago) {
+		this.Pago = Pago;
 	}
 
 	@Override
 	public String toString() {
-		return "Usuario [codigo=" + codigo + ", login=" + login + ", senha=" + senha + ", sexo=" + sexo + "]";
+		return "Usuario [Id=" + Id + ", Nome=" + Nome + ", valorComanda=" + valorComanda + ", Pago=" + Pago + "]";
 	}	
 }
